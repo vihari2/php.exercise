@@ -6,18 +6,40 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   <style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #style1 {
+        padding: 0 20px;
+        font-size: 35px;
+    }
+
+    #style2 {
+        margin: 20px;
+    }
+
+    #style3 {
+        border-style: solid;
+        border-color: black;
+    }
+  </style>
 </head>
+
 <body>
 <div class="container">
   <h1>Tabela de potências</h1>
 
- //[linhas] x [colunas] = matriz
+ <!-- //[linhas] x [colunas] = matriz
  //array bidimensional (matriz)
- 
+  -->
  <?php
 
   function create_table_cell($i, $j) {
-      return "<td>" . pow($i, $j) . "</td>";
+      return "<td id='style1'>" . pow($i, $j) . "</td>";
   }
 
   function create_table_row($i, $n) {
@@ -25,7 +47,7 @@
       for ($j = 1; $j <= $n+1; $j++) {
           $cells .= create_table_cell($i, $j);
       }
-      return "<tr>" . $cells . "</tr>";
+      return "<tr id='style2'>" . $cells . "</tr>";
   }
 
   function create_table($n) {
@@ -33,7 +55,7 @@
       for ($i = 1; $i <= $n; $i++) {
           $rows .= create_table_row($i, $n);
       }
-      return "<table>" . $rows . "</table>";
+      return "<table id='style3'>" . $rows . "</table>";
   }
 
   function power_matrix($n) {
